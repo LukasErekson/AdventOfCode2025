@@ -1,0 +1,1 @@
+from .day1 import main as d1

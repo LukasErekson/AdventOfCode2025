@@ -1,0 +1,12 @@
+[project]
+name = "advent-of-code-2025"
+version = "0.1.0"
+description = "Setting up a python repository for Advent of Code 2025."
+readme = "README.md"
+requires-python = ">=3.14.0"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "ptpython>=3.0.32",
+]
