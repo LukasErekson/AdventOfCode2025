@@ -76,7 +76,8 @@ All inputs between 10 digits.
 100-999: 9 (XXX)
 1000-9999: 90 ()"XYXY" 9 ops for X, 10 for Y) 10^3
 10000-99999: 9 (XXXXX) 10^4
-100000-999999: 900 ( "XYZXYZ" 9 ops for X, 10 for Y, 10 for Z) 10^5
+100000-999999: 900 ( "XYZXYZ" 9 ops for X, 10 for Y, 10 for Z) 10^5 
+    (or XYXYXY)
 
 Part 1
 |Power of 10|Count of Even Repeats|Options|
