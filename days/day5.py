@@ -1,6 +1,3 @@
-
-from typing import Generator, Tuple
-
 def main(input_path: str = "inputs/05/sample.txt") -> None:
     raw_input: str
     with open(input_path, "r") as f:
@@ -26,14 +23,35 @@ def part1(fresh_ranges: list[range], ingredients: list[int]) -> None:
     return
 
 def part2(fresh_ranges: list[range]) -> None:
-    fresh_ingredients: set[int] = set()
+    fresh_ranges.sort(key=lambda r: r.start)
+    merged_ranges: list[range] = []
 
-    for fresh_range in fresh_ranges:
-        fresh_ingredients.update(set(fresh_range))
+    current_range: range = fresh_ranges[0]
+    range_index: int = 1
 
-    print(f"Part 2: The total possible fresh ingredients is {len(fresh_ingredients)}")
+    while range_index < len(fresh_ranges):
+        next_range: range = fresh_ranges[range_index]
+        while can_merge_ranges(current_range, next_range):
+            next_range = fresh_ranges[range_index]
+            current_range = range(current_range.start, max(next_range.stop, current_range.stop))
+            range_index += 1
+            if range_index < len(fresh_ranges):
+                next_range = fresh_ranges[range_index]
+            else:
+                break
+
+        merged_ranges.append(current_range)
+        current_range = next_range
+        range_index += 1
+
+    fresh_ingredient_count: int = sum([len(r) for r in merged_ranges])
+
+    print(f"Part 2: The total possible fresh ingredients is {fresh_ingredient_count}")
 
     return
+
+def can_merge_ranges(r1: range, r2: range) -> bool:
+    return r2.start in r1 or r2.start == r1.stop
 
 if __name__ == "__main__":
     main()
