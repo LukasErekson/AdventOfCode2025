@@ -17,6 +17,12 @@ def main(args: MainArguments):
 
     if args.day == 1:
         days.d1(input_path)
+    elif args.day == 2:
+        days.d2(input_path)
+    elif args.day == 3:
+        days.d3(input_path)
+    elif args.day == 4:
+        days.d4(input_path)
 
 
 if __name__ == "__main__":
