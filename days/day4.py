@@ -1,4 +1,4 @@
-from typing import Generator, Tuple
+from typing import Generator
 
 def main(input_path: str = "inputs/04/input.txt") -> None:
     raw_input: str
@@ -6,8 +6,6 @@ def main(input_path: str = "inputs/04/input.txt") -> None:
         raw_input = f.read()
 
     paper_map: list[str] = raw_input.split("\n")
-    total_rows: int = len(paper_map)
-    total_cols: int = len(paper_map[0])
 
     part1(paper_map)
     part2(paper_map)
@@ -58,7 +56,6 @@ def part2(paper_map: list[str]) -> None:
     return
 
 def pulse_indices(row: int, col: int, total_rows: int, total_cols: int) -> Generator[tuple[int, int], None, None]:
-    pulse = list[(int, int)]
     # Above
     if (row - 1) >= 0:
         yield (row - 1, col)
