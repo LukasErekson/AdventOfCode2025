@@ -23,6 +23,8 @@ def main(args: MainArguments):
         days.d3(input_path)
     elif args.day == 4:
         days.d4(input_path)
+    elif args.day == 5:
+        days.d5(input_path)
 
 
 if __name__ == "__main__":
