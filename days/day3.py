@@ -35,9 +35,13 @@ def part2(battery_banks: list[str]) -> None:
 
 def largest_joltage(sub_bank: str, joltage: str = "", at_least_remaining: int = 11) -> str:
     # Base case: All that's left is what can be
-    if len(sub_bank) == at_least_remaining or at_least_remaining == -1:
-        return joltage
-    
+    if len(sub_bank) == at_least_remaining:
+        return joltage + sub_bank
+
+    # Base case 2: Only 1 more digit is needed
+    if at_least_remaining == 0:
+        return joltage + max(sub_bank)
+
     # Find max digit in sub_bank
     max_digit: str = max(sub_bank)
     max_digit_idx: int = sub_bank.index(max_digit)
