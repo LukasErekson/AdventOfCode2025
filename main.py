@@ -15,17 +15,7 @@ class MainArguments(ArgNamespace):
 def main(args: MainArguments):
     input_path: str = f"inputs/{str(args.day).rjust(2, '0')}/{'input' if args.input_type in ['a', 'actual'] else 'sample'}.txt"
 
-    if args.day == 1:
-        days.d1(input_path)
-    elif args.day == 2:
-        days.d2(input_path)
-    elif args.day == 3:
-        days.d3(input_path)
-    elif args.day == 4:
-        days.d4(input_path)
-    elif args.day == 5:
-        days.d5(input_path)
-
+    eval(f"days.{days.__all__[args.day - 1]}(\"{input_path}\")")
 
 if __name__ == "__main__":
     parser: ArgumentParser = ArgumentParser(
