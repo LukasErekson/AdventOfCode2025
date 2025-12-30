@@ -6,5 +6,6 @@ from .day5 import main as d5
 from .day6 import main as d6
 from .day7 import main as d7
 from .day08 import main as d8
+from .day09 import main as d9
 
-__all__ = ["d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8"]
+__all__ = ["d1", "d2", "d3", "d4", "d5", "d6", "d7", "d8", "d9"]
